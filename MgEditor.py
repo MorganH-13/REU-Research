@@ -98,4 +98,3 @@ while k < atomNum:
     f.write(str(coord_array[0])+'     '+str(coord_array[1])+'     '+str(coord_array[2]))
     f.write('\n')
     k+=1
->>>>>>> Stashed changes
