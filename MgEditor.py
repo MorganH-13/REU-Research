@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
 import numpy as np
 import math
 
