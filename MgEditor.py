@@ -4,7 +4,7 @@ import math
 #read in
 mn = open("Mn12-H-cartesian.txt", "r")
 #write to
-f = open('NEW-POSCAR.vasp', 'w')
+f = open('Mg-POSCAR.vasp', 'w')
 
 #change, rotate the molecule
 rot_deg = -45 #in degrees, negative to the right

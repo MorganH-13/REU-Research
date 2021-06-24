@@ -45,7 +45,7 @@ if (rot_rad % 2 * math.pi != 0):
 
     
 #Writes the header of the file
-f = open('POSCAR.txt', 'w')
+f = open('Graphene-POSCAR.txt', 'w')
 f.write(molecule + '\n')
 f.write('   ' + a_0 + '\n')
 for line in b_1:
