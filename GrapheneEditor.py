@@ -4,11 +4,11 @@ import pymatgen.transformations.standard_transformations as pymat
 
 #change options
 #scale of supercell
-scale = 1
+scale = 6
 #lattice constant
-latt_const = 2.5
+latt_const = 2.47
 #z axis spacing
-z_change = 24
+z_change = 12
 #degree of rotation around the z-axis
 rot_deg = 0 #in degrees
 
@@ -45,7 +45,7 @@ if (rot_rad % 2 * math.pi != 0):
 
     
 #Writes the header of the file
-f = open('Graphene-POSCAR.txt', 'w')
+f = open('Graphene-POSCAR.vasp', 'w')
 f.write(molecule + '\n')
 f.write('   ' + a_0 + '\n')
 for line in b_1:
@@ -68,30 +68,40 @@ for row in range(scale):
         #Generate coords
         a_1 = np.array([row/scale,column/scale,0])
             
-        if coords == 'Cartesian':
+        if coords.lower() == 'cartesian':
             #Change to cartesian
-            a_1 = np.array([a_1[0]*b_1[0]+a_1[1]*b_2[0]+a_1[2]*b_3[0],
+            a_2 = np.array([a_1[0]*b_1[0]+a_1[1]*b_2[0]+a_1[2]*b_3[0],
                            a_1[0]*b_1[1]+a_1[1]*b_2[1]+a_1[2]*b_3[1],
                            a_1[0]*b_1[2]+a_1[1]*b_2[2]+a_1[2]*b_3[2]])
 
         #Write to file
-        for line in a_1:
-            f.write(str(line) + '   ')
-        f.write('\n')
-            
+        if coords.lower() == 'direct':
+            for line in a_1:
+               f.write(str(line) + '   ')
+            f.write('\n')
+        elif coords.lower() == 'cartesian':
+            for line in a_2:
+               f.write(str(line) + '   ')
+            f.write('\n')
+
         #Find pair atom
         a_1 = a_1+np.array([(2/3)/scale,(1/3)/scale,0])
         
-        if coords == 'Cartesian':
+        if coords.lower() == 'cartesian':
             #Change to cartesian
-            a_1 = np.array([a_1[0]*b_1[0]+a_1[1]*b_2[0]+a_1[2]*b_3[0],
+            a_2 = np.array([a_1[0]*b_1[0]+a_1[1]*b_2[0]+a_1[2]*b_3[0],
                             a_1[0]*b_1[1]+a_1[1]*b_2[1]+a_1[2]*b_3[1],
                             a_1[0]*b_1[2]+a_1[1]*b_2[2]+a_1[2]*b_3[2]])
 
         #Write to file
-        for line in a_1:
-            f.write(str(line) + '   ')
-        f.write('\n')
+        if coords.lower() == 'direct':
+            for line in a_1:
+               f.write(str(line) + '   ')
+            f.write('\n')
+        elif coords.lower() == 'cartesian':
+            for line in a_2:
+               f.write(str(line) + '   ')
+            f.write('\n')
         
         #Reset column
         column = 0
