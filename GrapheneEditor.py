@@ -1,10 +1,9 @@
 import numpy as np
 import math
-import pymatgen.transformations.standard_transformations as pymat
 
 #change options
 #scale of supercell
-scale = 6
+scale = 10
 #lattice constant
 latt_const = 2.47
 #z axis spacing
@@ -20,7 +19,7 @@ molecule = 'Graphene'
 a_species = 'C'
 a_0 = '1'
 #type of cooridnates, can choose either direct or cartesian
-coords = 'Cartesian'
+coords = 'cartesian'
 #number of total atoms
 atomNum = 2*scale*scale
 #convert rot_deg to radians
@@ -45,7 +44,7 @@ if (rot_rad % 2 * math.pi != 0):
 
     
 #Writes the header of the file
-f = open('Graphene-POSCAR.vasp', 'w')
+f = open('Graphene.txt', 'w')
 f.write(molecule + '\n')
 f.write('   ' + a_0 + '\n')
 for line in b_1:
@@ -71,8 +70,8 @@ for row in range(scale):
         if coords.lower() == 'cartesian':
             #Change to cartesian
             a_2 = np.array([a_1[0]*b_1[0]+a_1[1]*b_2[0]+a_1[2]*b_3[0],
-                           a_1[0]*b_1[1]+a_1[1]*b_2[1]+a_1[2]*b_3[1],
-                           a_1[0]*b_1[2]+a_1[1]*b_2[2]+a_1[2]*b_3[2]])
+                            a_1[0]*b_1[1]+a_1[1]*b_2[1]+a_1[2]*b_3[1],
+                            a_1[0]*b_1[2]+a_1[1]*b_2[2]+a_1[2]*b_3[2]])
 
         #Write to file
         if coords.lower() == 'direct':

@@ -2,9 +2,9 @@ import numpy as np
 import math
 
 #read in
-mn = open("Mn12-H-cartesian.txt", "r")
+mn = open("Mn12-H-Relaxed.txt", "r")
 #write to
-f = open('Mg-POSCAR.vasp', 'w')
+f = open('Mn12-H.txt', 'w')
 
 #change, rotate the molecule
 rot_deg = -45 #in degrees, negative to the right
@@ -69,9 +69,9 @@ while j < 8:
     if j == 6:
         atomNum = add(content)
     j += 1
+
+
 k = 0
-
-
 #reads in the coordinates for each atom one at a time
 while k < atomNum:
     content = mn.readline()
