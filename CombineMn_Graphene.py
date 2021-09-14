@@ -1,18 +1,24 @@
 import numpy as np
 import math
 
+#for Mn12-H & perfect graphene
+#g = open("Graphene.txt", "r")
+#mn = open("Mn12-H.txt", "r")
+#comb = open('Comb.txt', 'w')
+
+#for Mn12-CH3
 g = open("Graphene.txt", "r")
-mn = open("Mn12-H.txt", "r")
-comb = open('Trial2.vasp', 'w')
+mn = open("Mn12-CH3.txt", "r")
+comb = open('Comb.txt', 'w')
 
 
 
 #VARIABLES
-rot_deg = -110        #in degrees, negative to the right
-x= 6.175                #translate Mn along x axis
-y= 9.26936           #translate Mn along y axis
-z = 7.2             #translate Mn along z axis
-g_z = 0               #DONT CHANGE translate Graphene along z axis
+rot_deg = -105          #in degrees, negative to the right (rotates graphene)
+x = 5.05421                #translate Mn along x axis
+y = 12.205135              #translate Mn along y axis
+z = 6.45              #translate Mn along z axis
+#g_z = 0                #DONT CHANGE translate Graphene along z axis
 
 
 #convert rot_deg to radians
@@ -74,7 +80,7 @@ while l < 8:
             length = add(Mg)
             comb.write(G)
         elif l == 4:
-            comb.write('0.0     0.0     ' + '30' + '\n')#where there is a 30, it's supposed to be str(length)
+            comb.write(G)
         else:
             comb.write(G)
     if l == 5:
@@ -135,7 +141,7 @@ while k < totalAtomNum:
     else:
         G = g.readline()
         gArray = get_array(G)
-        gArray[2] += g_z
+        #gArray[2] += g_z
         for line in gArray:
             comb.write(str(line) + "    ")
         comb.write('\n')

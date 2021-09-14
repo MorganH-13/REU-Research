@@ -1,4 +1,4 @@
-all: generate_graphene generate_Mn generate_combination
+all: generate_graphene generate_Mn generate_combination move_file
 
 generate_graphene:
 	@echo "Making graphene cell..."
@@ -11,3 +11,7 @@ generate_Mn:
 generate_combination:
 	@echo "Combining system..."
 	@python3 CombineMn_Graphene.py
+
+move_file:
+	@echo "Moving file..."
+	@cp Comb.txt /Users/penguin/Desktop/REUResearch/Calculations/CombinedSystem/WVacancy/Orientation2/Height-6.45.txt

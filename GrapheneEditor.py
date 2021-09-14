@@ -7,7 +7,7 @@ scale = 10
 #lattice constant
 latt_const = 2.47
 #z axis spacing
-z_change = 12
+z_change = 26
 #degree of rotation around the z-axis
 rot_deg = 0 #in degrees
 

@@ -1,9 +1,12 @@
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/penguin/Downloads/Github/REU-Research'
 echo "Making graphene cell..."
 python3 GrapheneEditor.py
-echo Making Mn-12..."
+echo "Making Mn-12..."
 python3 MnEditor.py
 echo "Combining system..."
-python3 CombineMn&Graphene.py
+python3 CombineMn_Graphene.py
+echo "Moving file..."
+cp Comb.txt /Users/penguin/Desktop/REUResearch/Calculations/CombinedSystem/WVacancy/Orientation2/Height-6.45.txt
 make: Leaving directory `/Users/penguin/Downloads/Github/REU-Research'
  

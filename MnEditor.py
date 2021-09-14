@@ -2,9 +2,10 @@ import numpy as np
 import math
 
 #read in
-mn = open("Mn12-H-Relaxed.txt", "r")
+#mn = open("Mn12-H-Relaxed.txt", "r")
+mn = open("Mn12-CH3-Relaxed.txt", "r")
 #write to
-f = open('Mn12-H.txt', 'w')
+f = open('Mn12-CH3.txt', 'w')
 
 #change, rotate the molecule
 rot_deg = -45 #in degrees, negative to the right
