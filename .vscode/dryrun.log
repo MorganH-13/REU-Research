@@ -1,5 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/penguin/Downloads/Github/REU-Research'
+ 
 echo "Making graphene cell..."
 python3 GrapheneEditor.py
 echo "Making Mn-12..."
